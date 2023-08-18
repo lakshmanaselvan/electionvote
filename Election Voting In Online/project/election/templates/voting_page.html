@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Voting Page</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <p>Select a candidate:</p>
+        <select name="Candidate">
+            <option value="" selected disabled>Select a candidate</option>
+            {% for candidate in candidates %}
+                <option value="{{ candidate.cid }}">{{ candidate.cname }} - {{ candidate.partyname }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Vote">
+    </form>
+{% endblock %}

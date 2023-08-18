@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Vote Count Page</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Candidate</th>
+                <th>Vote Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidates in candidate %}
+            <tr>
+                <td>{{ candidates.cname }}</td>
+                <td>{{ candidates.vote_count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
